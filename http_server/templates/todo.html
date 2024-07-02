@@ -1,0 +1,25 @@
+{% extends 'base.html' %} 
+{% block content %} 
+<div class="title">
+  <h1>Todo List</h1>
+</div>
+{% for todo in todoList %}
+<div class="todo-container">
+  <div class="todo" onclick="window.location.href = '{% url 'update_todo' todo.id %}';">
+    <p><b>Todo:&nbsp;</b>{{ todo.title }}</p>
+    <p><b>Details:&nbsp;</b>{{ todo.details }}</p>
+    <p><b>Todo Date:&nbsp;</b>{{ todo.date }}</p>
+  </div>
+  <div style="display: flex;align-items: center;">
+    <span class="todo-container-separator"></span>
+  </div>
+  <div class="todo-check" onclick="window.location.href = '{% url 'update_todo_done' todo.id %}';">
+    <p><b>Status:&nbsp;</b>{% if todo.done %}Done{% else %}Not Done{% endif %}</p>
+  </div>
+</div>
+{% empty %}
+<div class="todo-container" onclick="window.location.href = '{% url 'add_todo' %}';">
+  <p>Empty todo list!</p>
+</div>
+{% endfor %} 
+{% endblock %}

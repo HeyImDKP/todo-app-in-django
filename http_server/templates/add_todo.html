@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="form-container">
+    <h1>Add Todo</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input class="button" type="submit" value="Add Todo" style="width: 100%; margin-top: 10px;">
+        <a class="button warning" href="{% url 'todo' %}">Cancel</a>
+    </form>
+</div>
+
+{% endblock %}

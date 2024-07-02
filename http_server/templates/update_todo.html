@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="form-container">
+    <h1>Update Todo</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input class="button" type="submit" value="Update Todo" style="width: 100%; margin-top: 10px;">
+        <a class="button warning" href="{% url 'todo' %}">Cancel</a>
+        <a class="button warning" href="{% url 'delete_todo' todo.id %}">Delete</a>
+    </form>
+</div>
+
+{% endblock %}
