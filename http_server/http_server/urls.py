@@ -20,9 +20,14 @@ from todo_app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
     path('', views.get_todo, name='todo'),
     path('add_todo/', views.add_todo, name='add_todo'),
     path('update_todo/<int:id>/', views.update_todo, name='update_todo'),
     path('update_todo_done/<int:id>/', views.update_todo_done, name='update_todo_done'),
     path('delete_todo/<int:id>/', views.delete_todo, name='delete_todo'),
+
+    path('signup/', views.signup, name='signup'),
+    path('login/', views.login, name='login'),
+    path('logout/', views.logout, name='logout'),
 ]

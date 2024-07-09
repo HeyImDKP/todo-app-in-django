@@ -15,15 +15,32 @@
     <div class="page-container">
     <header>
       <nav class="topnav">
-      <a class="logo" href="{% url 'todo' %}">
-        <img class="logo" src="{% static 'logo.png' %}" alt="logo" />
-      </a>
-        <ul class="nav-list">
+        <a class="logo" href="{% url 'todo' %}">
+          <img class="logo" src="{% static 'logo.png' %}" alt="logo" />
+        </a>
+        <ul>
           <li><a href="{% url 'todo' %}">Home</a></li>
           <li><a href="{% url 'add_todo' %}">Add Todo</a></li>
           <li><a href="#">About</a></li>
-          <li><button>Login <img class="login-logo" src="{% static 'login.png' %}" /></button></li>
+          <li style="color: var(--cream)">{{ request.user }}</li>
+          <li><button onclick="window.location.href = 
+              {% if request.user.is_authenticated %} 
+                '{% url 'logout' %}'
+              {% else %} 
+                '{% url 'login' %}'
+              {% endif %};">
+            {% if request.user.is_authenticated %}
+              Logout
+            {% else %}
+              Login 
+            {% endif %}
+          <img class="login-logo" src="{% static 'login.png' %}" /></button></li>
         </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
       </nav>
     </header>
 
@@ -46,5 +63,8 @@
       </p>
     </footer>
     </div>
+    <script type="text/javascript">
+      const hambugerMenu = new Hamburger(".topnav .hamburger", ".topnav ul", "header");
+    </script>
   </body>
 </html>

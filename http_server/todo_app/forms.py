@@ -1,5 +1,5 @@
 from django import forms
-from .models import Todo_Data
+from .models import Todo_Data, User
 from django.utils import timezone
 
 class Todo_Form(forms.ModelForm):
@@ -12,3 +12,11 @@ class Todo_Form(forms.ModelForm):
             'date': forms.DateInput(attrs={'class': 'form-input', 'placeholder': f'Enter Date ({timezone.now()})'}),
         }
         
+class User_Form(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['username', 'password']
+        widgets = {
+            'username': forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Enter Username'}),
+            'password': forms.PasswordInput(attrs={'class': 'form-input', 'placeholder': 'Enter Password'}),
+        }

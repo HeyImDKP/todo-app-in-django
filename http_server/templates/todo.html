@@ -19,7 +19,7 @@
 </div>
 {% empty %}
 <div class="todo-container" onclick="window.location.href = '{% url 'add_todo' %}';">
-  <p>Empty todo list!</p>
+  <p style="margin: 10px">Empty todo list!</p>
 </div>
 {% endfor %} 
 {% endblock %}

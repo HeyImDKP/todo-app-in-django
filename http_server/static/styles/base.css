@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap');
 :root {
     --dark: #333;
     --light: #f5f5f5;
@@ -145,6 +146,20 @@ footer a {
     text-decoration: none;
 }
 
+.topnav .hamburger {
+    display: none;
+}
+
+.topnav .hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--cream);
+}
+
 /* todo.html */
 .title {
     display: flex;
@@ -212,6 +227,7 @@ footer a {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    min-width: 110px;
     flex: 2;
     padding: 10px;
     transition: 0.5s;
@@ -270,4 +286,106 @@ label {
 .button.warning:hover {
     background-color: var(--dark-red);
     color: var(--dark);
+}
+
+@media screen and (max-width: 1200px) {
+    form {
+        width: 50vw;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .todo-container {
+        margin: 10px 20vw;
+    }
+    .todo-container:hover {
+        margin: 10px 15vw;
+    }
+
+    .title {
+        margin: 10px 20vw;
+    }
+
+    form {
+        width: 60vw;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .todo-container {
+        margin: 10px 10vw;
+    }
+    .todo-container:hover {
+        margin: 10px 5vw;
+    }
+
+    .title {
+        margin: 10px 10vw;
+    }
+
+    form {
+        width: 80vw;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .todo-container {
+        margin: 10px 5vw;
+    }
+
+    .todo-container:hover {
+        margin: 10px 2vw;
+    }
+
+    .topnav ul {
+        position: fixed;
+        left: 100%;
+        top: 78px;
+        flex-direction: column;
+        background-color: var(--dark);
+        width: 100%;
+        height: 100vh;
+        text-align: center;
+        transition: 0.3s;
+        z-index: 1;
+    }
+
+    .topnav ul.active {
+        left: 0;
+    }
+
+    .topnav ul li {
+        margin: 18px 0;
+    }
+
+    .topnav .hamburger {
+        display: block;
+        cursor: pointer;
+        margin: 0 15px;
+    }
+
+    .topnav .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .topnav .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .topnav .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    header {
+        padding: 10px;
+        background-color: var(--dark);
+    }
+
+    .title {
+        margin: 10px 5vw;
+    }
+
+    form {
+        width: 90vw;
+    }
 }
