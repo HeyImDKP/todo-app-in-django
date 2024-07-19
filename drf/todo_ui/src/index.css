@@ -1,0 +1,40 @@
+:root {
+  --dark: #333;
+  --light: #f5f5f5;
+  --yellow: #feefcc;
+  --cream: #fcde99;
+  --dark-yellow: #fed668;
+  --gray: #696d72;
+  --green: #55aa00;
+  --red: #e53f3f;
+  --dark-red: #b91c1c;
+}
+
+/* base.html */
+html {
+  box-sizing: border-box;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: medium;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: var(--yellow);
+  color: var(--dark);
+}
+
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}

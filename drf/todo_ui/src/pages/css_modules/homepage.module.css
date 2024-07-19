@@ -1,0 +1,94 @@
+@import "./base.module.css";
+
+.title {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  background-color: transparent;
+  margin: 10px 25vw;
+  padding: 10px;
+  border: none;
+  border-bottom: solid 3px var(--dark);
+  border-radius: 0;
+}
+
+.title h1 {
+  font-size: 40px;
+}
+
+.todoContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin: 10px 25vw;
+  background-color: var(--cream);
+  border: var(--dark) solid 2px;
+  border-radius: 5px;
+  transition: 0.5s;
+  overflow: auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.todoContainer:hover {
+  cursor: pointer;
+  background-color: var(--dark-yellow);
+  margin: 10px 23vw;
+}
+
+.todo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex: 7;
+  transition: 0.5s;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.todo:hover {
+  background-color: var(--dark-yellow);
+  filter: brightness(95%);
+  border: 2px solid var(--dark) !important;
+}
+
+.todo p {
+  display: flex;
+  margin: 4px;
+  transition: 0.5s;
+  overflow: auto;
+  word-wrap: break-word;
+}
+
+.doneContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 2;
+  padding: 10px;
+  transition: 0.5s;
+}
+
+.doneContainer:hover {
+  cursor: pointer;
+  flex: 3;
+}
+
+.doneButton {
+  display: flex;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  height: 100% !important;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  transition: 0.2s !important;
+  border: none !important;
+}
+
+.doneButton:hover {
+  cursor: pointer;
+  border: 2px solid var(--dark) !important;
+}

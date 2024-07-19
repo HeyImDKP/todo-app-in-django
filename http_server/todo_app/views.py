@@ -22,6 +22,8 @@ def get_todo(request: HttpRequest) -> HttpResponse:
     )
 
 def add_todo(request: HttpRequest) -> HttpResponse:
+    if request.user.is_anonymous:
+        return redirect('login')
     if request.method == 'POST':
         form = Todo_Form(request.POST)
         if form.is_valid():
@@ -43,6 +45,8 @@ def add_todo(request: HttpRequest) -> HttpResponse:
 
 
 def update_todo(request: HttpRequest, id: int) -> HttpResponse:
+    if request.user.is_anonymous:
+        return redirect('login')
     todo = get_object_or_404(Todo_Data, id=id)
     if request.method == 'POST':
         form = Todo_Form(request.POST, instance=todo)
@@ -63,12 +67,16 @@ def update_todo(request: HttpRequest, id: int) -> HttpResponse:
     )
 
 def update_todo_done(request: HttpRequest, id:int) -> HttpResponse:
+    if request.user.is_anonymous:
+        return redirect('login')
     todo = get_object_or_404(Todo_Data, id=id)
     todo.done = not todo.done
     todo.save()
     return redirect('todo')
 
 def delete_todo(request: HttpRequest, id: int) -> HttpResponse:
+    if request.user.is_anonymous:
+        return redirect('login')
     todo = get_object_or_404(Todo_Data, id=id)
     todo.delete()
     return redirect('todo')
